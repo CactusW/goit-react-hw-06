@@ -8,7 +8,6 @@ import {addContact} from "../../redux/contactsSlice.js"
 
 export default function ContactForm() {
   const dispatch = useDispatch();
-  const nameFieldId = useId(); //!!!Не используйте Nano ID для генерации свойства key в JSX. При каждом рендере key будет разный, что плохо скажется на производительности.Для связи <input> и <label> лучше использовать useId, который был добавлен в React 18. (https://github.com/ai/nanoid/blob/main/README.ru.md)
   const numberFieldId = useId();
 
   const initialValues = {
@@ -86,15 +85,3 @@ export default function ContactForm() {
   );
 }
 
-/* замість input ми використовуємо в Formik бібліотеці Field*/
-/* Замість form використовуємо Form */
-
-/* План використанння Formik
-1) Встановити цю бібліотеку 
-2) Імпортувати і використати <Formik></Formik>
-3) Додати в середину Formik компонент Form
-4) Створити довільну кількість Field 
-5) Додати кнопку с типом submit
-6) Створюємо initialValues та handleSubmit
-7) Передаємо бажані поля в initialValues а також додаємо до всіх полів Field пропс name відповідно початкових станів
-8) Передаємо у Formik обробник і початковий стан   <Formik initialValues={{ initialValues }} onSubmit={handleSubmit}> */
